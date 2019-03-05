@@ -5,5 +5,5 @@ It's just a template of vue-cli, details see [docs](https://github.com/vuejs/vue
 
 use it with `vue-cli`:
 ```shell
-$ vue init username/repo my-project
+$ vue init Hunter-Gu/component-lib-template your-project-name
 ```
