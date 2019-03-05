@@ -1,0 +1,32 @@
+{
+  "prompts": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "label": "Project name, single word, no space or punctuations"
+    },
+    "description": {
+      "type": "string",
+      "required": true,
+      "label": "Project description",
+      "default": "A vue components lib"
+    },
+    "author": {
+      "type": "string",
+      "label": "Author"
+    },
+    "license": {
+      "type": "string",
+      "label": "License",
+      "default": "MIT"
+    },
+    "needDoc": {
+      "type": "confirm",
+      "label": "Do you want to use doc"
+    }
+  },
+  "filters" : {
+    "docs/**/*": "needDoc"
+  },
+  "completeMessage": "{{#inPlace}}To get started:\n\n  npm install\n  npm start{{else}}To get started:\n\n  cd {{destDirName}}\n  npm install\n  npm start{{/inPlace}}"
+}
