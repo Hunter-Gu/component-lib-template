@@ -1,5 +1,19 @@
 const { getFilename } = require('./utils')
 
+exports.getTsLoaderWithPlugins = function () {
+  const { CheckerPlugin } = require('awesome-typescript-loader')
+
+  return {
+    loaders: {
+      test: /\.tsx?$/,
+      use: [{
+        loader: 'awesome-typescript-loader'
+      }]
+    },
+    plugins: [new CheckerPlugin()]
+  }
+}
+
 exports.getVueLoaderWithPlugins = function () {
   const VueLoaderPlugin = require('vue-loader/lib/plugin')
   return {

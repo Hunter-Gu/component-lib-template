@@ -17,6 +17,7 @@ const mediaLoader = loaders.getMediaLoaders(isdev)
 const definePlugin = plugins.getDefinePlugin()
 const cleanPlugin = plugins.getCleanPlugin(assetsRoot)
 
+const tsLoaderWithPlugins = loaderWithPlugins.getTsLoaderWithPlugins()
 const vueLoaderWithPlugins = loaderWithPlugins.getVueLoaderWithPlugins()
 const stylLoaderMaybeWithPlugins = loaderWithPlugins.getStylLoaderMaybeWithPlugins(isdev, false)
 
@@ -33,13 +34,13 @@ configs.push(Object.assign({}, base, {
     alias: config.alias,
     modules: ['node_modules'],
     mainFields: ['main', 'module', 'browser'],
-    extensions: ['.js', '.json']
+    extensions: ['.js', '.json', '.ts']
   },
   externals: config.externals,
   module: {
-    rules: [pugLoader, jsLoader, stylLoaderMaybeWithPlugins.loaders, imgLoader, fontLoader, mediaLoader, vueLoaderWithPlugins.loaders]
+    rules: [tsLoaderWithPlugins.loaders, pugLoader, jsLoader, stylLoaderMaybeWithPlugins.loaders, imgLoader, fontLoader, mediaLoader, vueLoaderWithPlugins.loaders]
   },
-  plugins: [definePlugin, cleanPlugin, ...vueLoaderWithPlugins.plugins, ...stylLoaderMaybeWithPlugins.plugins]
+  plugins: [definePlugin, cleanPlugin, ...vueLoaderWithPlugins.plugins, ...stylLoaderMaybeWithPlugins.plugins, ...tsLoaderWithPlugins.plugins]
 }))
 
 module.exports = configs
