@@ -6,6 +6,7 @@
   "scripts": {
     "start": "cross-env HMR=true NODE_ENV=development PARALLEL=true WEBPACK=all webpack --inline --config ./bin/webpack.dev.conf.js",
     "build": "cross-env NODE_ENV=production PARALLEL=true webpack --config ./bin/webpack.prod.conf.js",
+    "lint": "eslint --ext .js,.vue src",
     "doc": "docsify serve ./docs",
     "serve:doc": ""
   },
@@ -41,6 +42,10 @@
     "vue-template-compiler": "^2.6.8",
     "pug": "^2.0.3",
     "pug-plain-loader": "^1.0.0",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.5.1",
+    "eslint-loader": "^3.0.2",
+    "eslint-plugin-vue": "^5.2.3",
     "webpack": "^4.29.5",
     "webpack-cli": "^3.2.3",
     "webpack-manifest-plugin": "^2.0.4",
